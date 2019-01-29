@@ -30,95 +30,69 @@ function jogada(ident){
 }
 
 function ganhou(){
-    let t11 = document.getElementById('t11').innerHTML;
-    let t12 = document.getElementById('t12').innerHTML;
-    let t13 = document.getElementById('t13').innerHTML;
-    let t21 = document.getElementById('t21').innerHTML;
-    let t22 = document.getElementById('t22').innerHTML;
-    let t23 = document.getElementById('t23').innerHTML;
-    let t31 = document.getElementById('t31').innerHTML;
-    let t32 = document.getElementById('t32').innerHTML;
-    let t33 = document.getElementById('t33').innerHTML;
     //primeira coluna horizontal
-    if ((t11!='')&&(t12!='')&&(t13!='')&&(t11==t12)&&(t12==t13)){
-        document.getElementById("t11").style.color='blue';
-        document.getElementById("t12").style.color='blue';
-        document.getElementById("t13").style.color='blue';
-        i=0;
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);
-    }
-    //primeira diagonal
-    if ((t11!='')&&(t22!='')&&(t33!='')&&(t11==t22)&&(t22==t33)){
-        document.getElementById("t11").style.color='blue';
-        document.getElementById("t22").style.color='blue';
-        document.getElementById("t33").style.color='blue';
-        i=0;
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);    
-    }
-    //primeira coluna vertical
-    if ((t11!='')&&(t21!='')&&(t31!='')&&(t11==t21)&&(t21==t31)){
-        document.getElementById("t11").style.color='blue';
-        document.getElementById("t21").style.color='blue';
-        document.getElementById("t31").style.color='blue';
-        i=0;
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);    
-    }
-    //segunda horizontal
-    if ((t21!='')&&(t22!='')&&(t23!='')&&(t21==t22)&&(t22==t23)){
-        document.getElementById("t21").style.color='blue';
-        document.getElementById("t22").style.color='blue';
-        document.getElementById("t23").style.color='blue';
-        i=0;
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);    
-    }
-    //terceira horizontal
-    if ((t31!='')&&(t32!='')&&(t33!='')&&(t31==t32)&&(t32==t33)){
-        document.getElementById("t31").style.color='blue';
-        document.getElementById("t32").style.color='blue';
-        document.getElementById("t33").style.color='blue';
-        i=0;
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);    
-    }
-    //segunta vertical
-    if ((t12!='')&&(t22!='')&&(t32!='')&&(t12==t22)&&(t22==t32)){
-        document.getElementById("t12").style.color='blue';
-        document.getElementById("t22").style.color='blue';
-        document.getElementById("t32").style.color='blue';
-        i=0;
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);
-    }
-    //terceira vertical
-    if ((t13!='')&&(t23!='')&&(t33!='')&&(t13==t23)&&(t23==t33)){
-        document.getElementById("t13").style.color='blue';
-        document.getElementById("t23").style.color='blue';
-        document.getElementById("t33").style.color='blue';
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);
-    }
-    //segunda diagonal
-    if ((t31!='')&&(t22!='')&&(t13!='')&&(t31==t22)&&(t22==t13)){
-        document.getElementById("t31").style.color='blue';
-        document.getElementById("t22").style.color='blue';
-        document.getElementById("t13").style.color='blue';
-        setTimeout(function(){
-            alert("TEMOS UM GANHADOR!!") 
-        }, 300);
-    }
-         
+    verificaJogada('t11','t12','t13');
     
+    //primeira diagonal
+    verificaJogada('t11','t22','t33');
+    
+    //primeira coluna vertical
+    verificaJogada('t11','t21','t31');
+    
+    //segunda horizontal
+    verificaJogada('t21','t22','t23');
+    
+    //terceira horizontal
+    verificaJogada('t31','t32','t33');
+    
+    //segunta vertical
+    verificaJogada('t12','t22','t32');
+    
+    //terceira vertical
+    verificaJogada('t13','t23','t33');
+    
+    //segunda diagonal
+    verificaJogada('t31','t22','t13');
+
+    //Verifica se deu Velha
+    deuVelha();
+}
+
+function verificaJogada(id1,id2,id3){
+    let celula1,celula2,celula3;
+    celula1 = document.getElementById(id1);
+    celula2 = document.getElementById(id2);
+    celula3 = document.getElementById(id3);
+
+    if ((celula1.innerHTML!='')&&(celula2.innerHTML!='')&&(celula3.innerHTML!='')&&(celula1.innerHTML==celula2.innerHTML)&&(celula2.innerHTML==celula3.innerHTML)){
+        celula1.style.color='blue';
+        celula2.style.color='blue';
+        celula3.style.color='blue';
+        setTimeout(function(){
+            alert("TEMOS UM GANHADOR!!")
+            let jogador = 'wp1';
+            if(i%2==0){
+                jogador = 'wp2';                
+            }
+            let pontuacao = parseInt(document.getElementById(jogador).innerHTML);
+            pontuacao++;
+            document.getElementById(jogador).innerHTML=String(pontuacao);
+            setTimeout(function() { 
+                reset() 
+            }, 250); 
+        }, 300);
+    }
+
+
+}
+
+function deuVelha(){
+    if(i>8){
+        setTimeout(function(){
+            alert("Nenhum ganhador");
+            novoJogo();
+        },300);
+    }
 }
 
 function novoJogo(){
@@ -148,5 +122,6 @@ function reset(){
     document.getElementById('t31').style.color='white';
     document.getElementById('t32').style.color='white';
     document.getElementById('t33').style.color='white';
+    //resetando indice de jogadas
     i=0;
 }
