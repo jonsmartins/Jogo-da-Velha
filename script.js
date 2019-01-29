@@ -104,7 +104,6 @@ function ganhou(){
         document.getElementById("t13").style.color='blue';
         document.getElementById("t23").style.color='blue';
         document.getElementById("t33").style.color='blue';
-        i=0;
         setTimeout(function(){
             alert("TEMOS UM GANHADOR!!") 
         }, 300);
@@ -114,13 +113,18 @@ function ganhou(){
         document.getElementById("t31").style.color='blue';
         document.getElementById("t22").style.color='blue';
         document.getElementById("t13").style.color='blue';
-        i=0;
         setTimeout(function(){
             alert("TEMOS UM GANHADOR!!") 
         }, 300);
     }
          
     
+}
+
+function novoJogo(){
+    reset();
+    document.getElementById("wp1").innerHTML='0';
+    document.getElementById("wp2").innerHTML='0';
 }
 
 function reset(){
@@ -144,4 +148,5 @@ function reset(){
     document.getElementById('t31').style.color='white';
     document.getElementById('t32').style.color='white';
     document.getElementById('t33').style.color='white';
+    i=0;
 }

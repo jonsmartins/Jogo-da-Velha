@@ -42,5 +42,6 @@ button{
     font-family: fantasy;
     font-size: 20px;
     background-color: #2196f3;
-    float: left;
+    display: block;
+    margin-bottom: 5px;
 }
