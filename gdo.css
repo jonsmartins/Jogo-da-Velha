@@ -1,0 +1,46 @@
+#player1{
+    text-align: left;
+}
+#player2{
+    text-align: right;
+}
+#tbcenter{
+    margin:auto;
+    background-color: rgb(84,84,84);
+}
+td{
+    width: 80px;
+    height: 80px;
+    align-content:center;
+    text-align: center;
+    color: white;
+}
+.vert{
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+.hori{
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10vh;
+}
+body{
+    background-color: #fafafa;
+}
+button{
+    width: 70px;
+    padding:10px;
+    border-radius: 5px;
+    box-shadow: none;
+    border:none;
+    color: white;
+    font-family: fantasy;
+    font-size: 20px;
+    background-color: #2196f3;
+    float: left;
+}

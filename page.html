@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Game</title>
+        <link rel="stylesheet" type="text/css" href="gdo.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+<body>
+    <div class="header">
+        <div>
+            <h1>Player 1 venceu:</h1>
+            <h1 id="wp1">0</h1>
+        </div>
+    
+        <div >
+            <h1>Player 2 venceu:</h1>
+            <h1 id="wp2">0</h1>
+        </div>
+    </div>
+    <button type="button" class="btn btn-info" onclick="reset()">Reset</button>
+<table id="tbcenter">
+    <tr>
+        <td id="t11" onclick="jogada(this.id);ganhou();"></td>
+        <td id="t12" onclick="jogada(this.id);ganhou();" class="vert"></td>
+        <td id="t13" onclick="jogada(this.id);ganhou();"></td>
+    </tr>
+    <tr>
+        <td id="t21" onclick="jogada(this.id);ganhou();" class="hori"></td>
+        <td id="t22" onclick="jogada(this.id);ganhou();" class="vert hori"></td>
+        <td id="t23" onclick="jogada(this.id);ganhou();" class="hori"></td>
+    </tr>
+    <tr>
+        <td id="t31" onclick="jogada(this.id);ganhou();"></td>
+        <td id="t32" onclick="jogada(this.id);ganhou();" class="vert"></td>
+        <td id="t33" onclick="jogada(this.id);ganhou();"></td>
+    </tr>
+</table>
+</body>
+</html>
