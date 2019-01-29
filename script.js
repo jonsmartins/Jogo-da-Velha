@@ -90,7 +90,7 @@ function deuVelha(){
     if(i>8){
         setTimeout(function(){
             alert("Nenhum ganhador");
-            novoJogo();
+            reset();
         },300);
     }
 }
